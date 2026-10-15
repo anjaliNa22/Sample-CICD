@@ -151,6 +151,8 @@ export function Dashboard({ onShowToast }) {
 
   const handleResetSessionData = () => {
     if (window.confirm('Reset local demo data to default state?')) {
+      localStorage.removeItem('erp_users');
+      localStorage.removeItem('erp_current_user');
       localStorage.removeItem('nexus_users');
       localStorage.removeItem('nexus_current_user');
       window.location.reload();
@@ -171,8 +173,8 @@ export function Dashboard({ onShowToast }) {
               <ShieldCheck size={22} />
             </div>
             <div>
-              <span className="brand-name">NexusAuth</span>
-              <span className="brand-version">v2.4</span>
+              <span className="brand-name">ERP</span>
+              <span className="brand-version">Portal</span>
             </div>
           </div>
           {sidebarOpen && (

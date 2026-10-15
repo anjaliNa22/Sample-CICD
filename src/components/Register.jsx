@@ -138,10 +138,10 @@ export function Register({ onSwitchToLogin, onShowToast }) {
         <header className="auth-header">
           <div className="brand-badge">
             <ShieldCheck className="brand-logo-icon" />
-            <span className="brand-title">Nexus Platform</span>
+            <span className="brand-title">ERP Portal</span>
           </div>
           <h1 className="auth-title">Create Account</h1>
-          <p className="auth-subtitle">Join your team on the dashboard</p>
+          <p className="auth-subtitle">Join your team on the ERP dashboard</p>
         </header>
 
         <div className="demo-credential-banner">

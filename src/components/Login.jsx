@@ -17,7 +17,7 @@ import {
 export function Login({ onSwitchToRegister, onShowToast }) {
   const { login, theme, toggleTheme } = useAuth();
   
-  const [identifier, setIdentifier] = useState('alex@nexus.io');
+  const [identifier, setIdentifier] = useState('alex@erp.com');
   const [password, setPassword] = useState('1234');
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(true);
@@ -64,7 +64,7 @@ export function Login({ onSwitchToRegister, onShowToast }) {
   };
 
   const fillDemoCredentials = () => {
-    setIdentifier('alex@nexus.io');
+    setIdentifier('alex@erp.com');
     setPassword('1234');
     setError('');
     if (onShowToast) {
@@ -88,10 +88,10 @@ export function Login({ onSwitchToRegister, onShowToast }) {
         <header className="auth-header">
           <div className="brand-badge">
             <ShieldCheck className="brand-logo-icon" />
-            <span className="brand-title">Nexus Platform</span>
+            <span className="brand-title">ERP Portal</span>
           </div>
           <h1 className="auth-title">Welcome Back</h1>
-          <p className="auth-subtitle">Log in to access your analytics dashboard</p>
+          <p className="auth-subtitle">Log in to access your ERP dashboard</p>
         </header>
 
         {/* Demo Credential Notification Box */}
@@ -130,7 +130,7 @@ export function Login({ onSwitchToRegister, onShowToast }) {
                 id="login-identifier"
                 type="text"
                 className="input-field"
-                placeholder="e.g. alex@nexus.io or alex"
+                placeholder="e.g. alex@erp.com or alex"
                 value={identifier}
                 onChange={(e) => setIdentifier(e.target.value)}
                 autoComplete="username"

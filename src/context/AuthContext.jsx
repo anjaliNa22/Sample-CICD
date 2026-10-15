@@ -6,7 +6,7 @@ const DEFAULT_USERS = [
   {
     id: 'usr-1',
     name: 'Alex Morgan',
-    email: 'alex@nexus.io',
+    email: 'alex@erp.com',
     username: 'alex',
     password: '1234',
     role: 'Administrator',
@@ -20,7 +20,7 @@ const DEFAULT_USERS = [
   {
     id: 'usr-2',
     name: 'Sarah Chen',
-    email: 'sarah@nexus.io',
+    email: 'sarah@erp.com',
     username: 'sarah',
     password: '1234',
     role: 'Lead DevOps Engineer',
@@ -34,7 +34,7 @@ const DEFAULT_USERS = [
   {
     id: 'usr-3',
     name: 'Marcus Vance',
-    email: 'marcus@nexus.io',
+    email: 'marcus@erp.com',
     username: 'marcus',
     password: '1234',
     role: 'Principal Designer',
@@ -51,7 +51,7 @@ export function AuthProvider({ children }) {
   // Registered users stored in localStorage
   const [users, setUsers] = useState(() => {
     try {
-      const saved = localStorage.getItem('nexus_users');
+      const saved = localStorage.getItem('erp_users') || localStorage.getItem('nexus_users');
       return saved ? JSON.parse(saved) : DEFAULT_USERS;
     } catch {
       return DEFAULT_USERS;
@@ -61,7 +61,7 @@ export function AuthProvider({ children }) {
   // Current logged in user
   const [currentUser, setCurrentUser] = useState(() => {
     try {
-      const saved = localStorage.getItem('nexus_current_user');
+      const saved = localStorage.getItem('erp_current_user') || localStorage.getItem('nexus_current_user');
       return saved ? JSON.parse(saved) : null;
     } catch {
       return null;
@@ -71,7 +71,7 @@ export function AuthProvider({ children }) {
   // Theme state ('dark' | 'light')
   const [theme, setTheme] = useState(() => {
     try {
-      return localStorage.getItem('nexus_theme') || 'dark';
+      return localStorage.getItem('erp_theme') || localStorage.getItem('nexus_theme') || 'dark';
     } catch {
       return 'dark';
     }
@@ -80,7 +80,7 @@ export function AuthProvider({ children }) {
   // Sync users to localStorage
   useEffect(() => {
     try {
-      localStorage.setItem('nexus_users', JSON.stringify(users));
+      localStorage.setItem('erp_users', JSON.stringify(users));
     } catch (e) {
       console.error('Failed to sync users to localStorage', e);
     }
@@ -90,9 +90,9 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     try {
       if (currentUser) {
-        localStorage.setItem('nexus_current_user', JSON.stringify(currentUser));
+        localStorage.setItem('erp_current_user', JSON.stringify(currentUser));
       } else {
-        localStorage.removeItem('nexus_current_user');
+        localStorage.removeItem('erp_current_user');
       }
     } catch (e) {
       console.error('Failed to sync current user', e);
@@ -103,7 +103,7 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     try {
-      localStorage.setItem('nexus_theme', theme);
+      localStorage.setItem('erp_theme', theme);
     } catch (e) {
       console.error('Failed to save theme', e);
     }
@@ -151,7 +151,7 @@ export function AuthProvider({ children }) {
       const newUser = {
         id: `usr-${Date.now()}`,
         name: generatedName.charAt(0).toUpperCase() + generatedName.slice(1),
-        email: cleanId.includes('@') ? cleanId : `${cleanId}@nexus.io`,
+        email: cleanId.includes('@') ? cleanId : `${cleanId}@erp.com`,
         username: cleanId.replace(/[^a-z0-9]/gi, '').toLowerCase() || 'user',
         password: '1234',
         role: 'Verified Member',
