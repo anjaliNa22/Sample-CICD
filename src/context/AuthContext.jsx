@@ -8,7 +8,7 @@ const DEFAULT_USERS = [
     name: 'Alex Morgan',
     email: 'alex@erp.com',
     username: 'alex',
-    password: '1234',
+    password: '1111',
     role: 'Administrator',
     department: 'Platform Architecture',
     avatarInitials: 'AM',
@@ -22,7 +22,7 @@ const DEFAULT_USERS = [
     name: 'Sarah Chen',
     email: 'sarah@erp.com',
     username: 'sarah',
-    password: '1234',
+    password: '1111',
     role: 'Lead DevOps Engineer',
     department: 'Cloud Infrastructure',
     avatarInitials: 'SC',
@@ -36,7 +36,7 @@ const DEFAULT_USERS = [
     name: 'Marcus Vance',
     email: 'marcus@erp.com',
     username: 'marcus',
-    password: '1234',
+    password: '1111',
     role: 'Principal Designer',
     department: 'User Experience',
     avatarInitials: 'MV',
@@ -115,15 +115,15 @@ export function AuthProvider({ children }) {
 
   /**
    * Login function
-   * - Static password requirement: '1234'
-   * - Validates static password '1234' OR the user's customized password
+   * - Static password requirement: '1111'
+   * - Validates static password '1111' OR the user's customized password
    */
   const login = (identifier, password) => {
     const cleanId = (identifier || '').trim().toLowerCase();
     const cleanPass = (password || '').trim();
 
     // Verification check for password
-    const isStaticPasswordValid = cleanPass === '1234';
+    const isStaticPasswordValid = cleanPass === '1111';
 
     // Find user by email or username
     const foundUser = users.find(
@@ -138,13 +138,13 @@ export function AuthProvider({ children }) {
       } else {
         return {
           success: false,
-          error: 'Invalid password. (Static password is 1234)'
+          error: 'Invalid password. (Static password is 1111)'
         };
       }
     }
 
-    // If identifier is not in the list, but static password 1234 was provided:
-    // Create an ad-hoc session so any username with password 1234 can seamlessly log in!
+    // If identifier is not in the list, but static password 1111 was provided:
+    // Create an ad-hoc session so any username with password 1111 can seamlessly log in!
     if (isStaticPasswordValid && cleanId.length > 0) {
       const generatedName = identifier.split('@')[0];
       const initials = generatedName.slice(0, 2).toUpperCase();
@@ -153,7 +153,7 @@ export function AuthProvider({ children }) {
         name: generatedName.charAt(0).toUpperCase() + generatedName.slice(1),
         email: cleanId.includes('@') ? cleanId : `${cleanId}@erp.com`,
         username: cleanId.replace(/[^a-z0-9]/gi, '').toLowerCase() || 'user',
-        password: '1234',
+        password: '1111',
         role: 'Verified Member',
         department: 'Operations',
         avatarInitials: initials,
@@ -170,7 +170,7 @@ export function AuthProvider({ children }) {
 
     return {
       success: false,
-      error: 'User not found or invalid password. Please use static password: 1234'
+      error: 'User not found or invalid password. Please use static password: 1111'
     };
   };
 
@@ -181,7 +181,7 @@ export function AuthProvider({ children }) {
     const cleanName = (name || '').trim();
     const cleanEmail = (email || '').trim().toLowerCase();
     const cleanUser = (username || '').trim().toLowerCase();
-    const cleanPass = (password || '').trim() || '1234';
+    const cleanPass = (password || '').trim() || '1111';
 
     if (!cleanName || !cleanEmail || !cleanUser) {
       return { success: false, error: 'Please fill in all required fields.' };
@@ -210,7 +210,7 @@ export function AuthProvider({ children }) {
       name: cleanName,
       email: cleanEmail,
       username: cleanUser,
-      password: cleanPass, // Can be 1234 or custom
+      password: cleanPass, // Can be 1111 or custom
       role: role || 'Team Member',
       department: department || 'General',
       avatarInitials: initials,

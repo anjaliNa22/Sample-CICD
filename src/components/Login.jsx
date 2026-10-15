@@ -18,7 +18,7 @@ export function Login({ onSwitchToRegister, onShowToast }) {
   const { login, theme, toggleTheme } = useAuth();
   
   const [identifier, setIdentifier] = useState('alex@erp.com');
-  const [password, setPassword] = useState('1234');
+  const [password, setPassword] = useState('1111');
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(true);
   const [error, setError] = useState('');
@@ -36,7 +36,7 @@ export function Login({ onSwitchToRegister, onShowToast }) {
     }
 
     if (!password) {
-      setError('Please enter your password (Hint: 1234)');
+      setError('Please enter your password (Hint: 1111)');
       triggerShake();
       return;
     }
@@ -65,10 +65,10 @@ export function Login({ onSwitchToRegister, onShowToast }) {
 
   const fillDemoCredentials = () => {
     setIdentifier('alex@erp.com');
-    setPassword('1234');
+    setPassword('1111');
     setError('');
     if (onShowToast) {
-      onShowToast('Filled demo credentials with static password 1234!', 'info');
+      onShowToast('Filled demo credentials with static password 1111!', 'info');
     }
   };
 
@@ -98,7 +98,7 @@ export function Login({ onSwitchToRegister, onShowToast }) {
         <div className="demo-credential-banner">
           <div className="demo-credential-info">
             <KeyRound size={16} color="var(--primary)" />
-            <span>Static Password: <code>1234</code></span>
+            <span>Static Password: <code>1111</code></span>
           </div>
           <button 
             type="button" 
@@ -143,7 +143,7 @@ export function Login({ onSwitchToRegister, onShowToast }) {
             <div className="form-label">
               <label htmlFor="login-password">Password</label>
               <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-                Static: 1234
+                Static: 1111
               </span>
             </div>
             <div className="input-container">
@@ -154,7 +154,7 @@ export function Login({ onSwitchToRegister, onShowToast }) {
                 id="login-password"
                 type={showPassword ? 'text' : 'password'}
                 className="input-field"
-                placeholder="Enter password (1234)"
+                placeholder="Enter password (1111)"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 autoComplete="current-password"
@@ -188,7 +188,7 @@ export function Login({ onSwitchToRegister, onShowToast }) {
               className="auth-switch-link"
               style={{ fontSize: '0.825rem' }}
             >
-              Reset to 1234
+              Reset to 1111
             </span>
           </div>
 

@@ -15,16 +15,16 @@ test.describe('ERP Authentication & Dashboard Flows', () => {
     await expect(page.locator('.brand-title')).toHaveText('ERP Portal');
     await expect(page.locator('.auth-title')).toHaveText('Welcome Back');
 
-    // Verify static password banner displays '1234'
+    // Verify static password banner displays '1111'
     const passwordBadge = page.locator('.demo-credential-banner');
     await expect(passwordBadge).toBeVisible();
-    await expect(passwordBadge).toContainText('1234');
+    await expect(passwordBadge).toContainText('1111');
   });
 
-  test('should login successfully with static password 1234', async ({ page }) => {
+  test('should login successfully with static password 1111', async ({ page }) => {
     // Fill credentials
     await page.fill('#login-identifier', 'alex@erp.com');
-    await page.fill('#login-password', '1234');
+    await page.fill('#login-password', '1111');
 
     // Click submit
     await page.click('#btn-login-submit');
@@ -60,7 +60,7 @@ test.describe('ERP Authentication & Dashboard Flows', () => {
 
     // Verify inputs populated
     await expect(page.locator('#login-identifier')).toHaveValue('alex@erp.com');
-    await expect(page.locator('#login-password')).toHaveValue('1234');
+    await expect(page.locator('#login-password')).toHaveValue('1111');
   });
 
   test('should toggle theme between dark and light modes', async ({ page }) => {
@@ -87,8 +87,8 @@ test.describe('ERP Authentication & Dashboard Flows', () => {
     await page.fill('#reg-username', uniqueUsername);
     await page.fill('#reg-dept', 'Finance & Operations');
     await page.fill('#reg-role', 'ERP Analyst');
-    await page.fill('#reg-password', '1234');
-    await page.fill('#reg-confirm-password', '1234');
+    await page.fill('#reg-password', '1111');
+    await page.fill('#reg-confirm-password', '1111');
 
     // Submit registration
     await page.click('#btn-register-submit');
@@ -102,7 +102,7 @@ test.describe('ERP Authentication & Dashboard Flows', () => {
   test('should allow user to log out back to the login screen', async ({ page }) => {
     // Login
     await page.fill('#login-identifier', 'alex@erp.com');
-    await page.fill('#login-password', '1234');
+    await page.fill('#login-password', '1111');
     await page.click('#btn-login-submit');
 
     // Wait for dashboard

@@ -25,8 +25,8 @@ export function Register({ onSwitchToLogin, onShowToast }) {
     username: '',
     department: 'Engineering',
     role: 'Product Engineer',
-    password: '1234',
-    confirmPassword: '1234',
+    password: '1111',
+    confirmPassword: '1111',
     agreeTerms: true
   });
 
@@ -42,7 +42,7 @@ export function Register({ onSwitchToLogin, onShowToast }) {
   const getPasswordStrength = () => {
     const pass = formData.password;
     if (!pass) return 0;
-    if (pass === '1234') return 2; // standard static
+    if (pass === '1111') return 2; // standard static
     let score = 0;
     if (pass.length >= 4) score++;
     if (pass.length >= 8) score++;
@@ -73,7 +73,7 @@ export function Register({ onSwitchToLogin, onShowToast }) {
     }
 
     if (!formData.password) {
-      setError('Please specify a password (or use default 1234).');
+      setError('Please specify a password (or use default 1111).');
       triggerShake();
       return;
     }
@@ -106,7 +106,7 @@ export function Register({ onSwitchToLogin, onShowToast }) {
 
       if (result.success) {
         if (onShowToast) {
-          onShowToast(`Account created for ${result.user.name}! Static login password: 1234 is active.`, 'success');
+          onShowToast(`Account created for ${result.user.name}! Static login password: 1111 is active.`, 'success');
         }
       } else {
         setError(result.error || 'Registration failed.');
@@ -147,7 +147,7 @@ export function Register({ onSwitchToLogin, onShowToast }) {
         <div className="demo-credential-banner">
           <div className="demo-credential-info">
             <KeyRound size={16} color="var(--primary)" />
-            <span>Static password <code>1234</code> will also work for any created account!</span>
+            <span>Static password <code>1111</code> will also work for any created account!</span>
           </div>
         </div>
 
@@ -255,7 +255,7 @@ export function Register({ onSwitchToLogin, onShowToast }) {
             <div className="form-label">
               <label htmlFor="reg-password">Password</label>
               <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-                Pre-filled with 1234
+                Pre-filled with 1111
               </span>
             </div>
             <div className="input-container">
@@ -266,7 +266,7 @@ export function Register({ onSwitchToLogin, onShowToast }) {
                 id="reg-password"
                 type={showPassword ? 'text' : 'password'}
                 className="input-field"
-                placeholder="Set password (1234)"
+                placeholder="Set password (1111)"
                 value={formData.password}
                 onChange={(e) => handleChange('password', e.target.value)}
                 required
@@ -298,7 +298,7 @@ export function Register({ onSwitchToLogin, onShowToast }) {
                 id="reg-confirm-password"
                 type={showPassword ? 'text' : 'password'}
                 className="input-field"
-                placeholder="Confirm password (1234)"
+                placeholder="Confirm password (1111)"
                 value={formData.confirmPassword}
                 onChange={(e) => handleChange('confirmPassword', e.target.value)}
                 required
