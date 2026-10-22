@@ -47,14 +47,14 @@ export function Dashboard({ onShowToast }) {
 
   // Notifications mock data
   const [notifications, setNotifications] = useState([
-    { id: 1, title: 'Static Password Login', desc: 'Successful login with static key 1111', time: '2m ago', unread: true },
+    { id: 1, title: 'Static Password Login', desc: 'Successful login with static key 2222', time: '2m ago', unread: true },
     { id: 2, title: 'Platform Health Optimal', desc: 'All 8 API microservices operating at 100%', time: '1h ago', unread: true },
     { id: 3, title: 'New Registration', desc: 'New user joined the workspace', time: '3h ago', unread: false }
   ]);
 
   // Activity events mock data
   const [activities, setActivities] = useState([
-    { id: 1, event: 'Session Authenticated', desc: `${currentUser?.name} logged in using static password 1111`, time: 'Just now', type: 'auth' },
+    { id: 1, event: 'Session Authenticated', desc: `${currentUser?.name} logged in using static password 2222`, time: 'Just now', type: 'auth' },
     { id: 2, event: 'System Check Completed', desc: 'Latency checks reported normal (38ms avg)', time: '14 minutes ago', type: 'system' },
     { id: 3, event: 'Database Snapshot', desc: 'In-memory client state persisted to localStorage', time: '42 minutes ago', type: 'data' },
     { id: 4, event: 'User Provisioning', desc: 'Alex Morgan verified workspace credentials', time: '2 hours ago', type: 'user' }
@@ -309,7 +309,7 @@ export function Dashboard({ onShowToast }) {
           <div className="header-right">
             <div className="status-pill">
               <span className="status-dot-pulse" />
-              <span>Static Auth: 1111 Active</span>
+              <span>Static Auth: 2222 Active</span>
             </div>
 
             <button
@@ -395,7 +395,7 @@ export function Dashboard({ onShowToast }) {
                 <div className="welcome-info">
                   <h1 id="welcome-heading">Welcome, {currentUser?.name || 'Administrator'}!</h1>
                   <p>
-                    Your security session is authenticated with static password rule <code>1111</code>.
+                    Your security session is authenticated with static password rule <code>2222</code>.
                     Here is an overview of platform performance and team activity.
                   </p>
                 </div>
@@ -486,7 +486,7 @@ export function Dashboard({ onShowToast }) {
                   <div className="metric-trend">
                     <span className="trend-pill trend-up">
                       <ArrowUpRight size={14} />
-                      All 1111-ready
+                      All 2222-ready
                     </span>
                     <span className="trend-caption">in localStorage</span>
                   </div>
@@ -736,7 +736,7 @@ export function Dashboard({ onShowToast }) {
                             <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{u.role}</div>
                           </div>
                         </div>
-                        <span className="status-badge active">1111 Pass</span>
+                        <span className="status-badge active">2222 Pass</span>
                       </div>
                     ))}
                   </div>
@@ -821,7 +821,7 @@ export function Dashboard({ onShowToast }) {
                 <div>
                   <h1 className="card-heading-title">Team & Registered Users</h1>
                   <p className="card-heading-sub">
-                    Listing all in-memory users. All can authenticate with static password <code>1111</code>.
+                    Listing all in-memory users. All can authenticate with static password <code>2222</code>.
                   </p>
                 </div>
                 <button
@@ -888,7 +888,7 @@ export function Dashboard({ onShowToast }) {
                         </td>
                         <td>
                           <code style={{ color: '#a5b4fc', background: 'rgba(99, 102, 241, 0.15)', padding: '2px 6px', borderRadius: '4px' }}>
-                            1111
+                            2222
                           </code>
                         </td>
                       </tr>
@@ -1011,9 +1011,9 @@ export function Dashboard({ onShowToast }) {
 
                 <div className="static-password-highlight-box">
                   <span style={{ fontSize: '0.825rem', color: 'var(--text-secondary)' }}>Master Static Password:</span>
-                  <code>1111</code>
+                  <code>2222</code>
                   <p style={{ fontSize: '0.825rem', color: 'var(--text-muted)', marginTop: '4px' }}>
-                    As configured, any user account or arbitrary identifier with password <strong>1111</strong> will authenticate successfully without needing an external database.
+                    As configured, any user account or arbitrary identifier with password <strong>2222</strong> will authenticate successfully without needing an external database.
                   </p>
                 </div>
 
