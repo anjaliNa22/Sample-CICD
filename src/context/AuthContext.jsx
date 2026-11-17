@@ -131,8 +131,7 @@ export function AuthProvider({ children }) {
     );
 
     if (foundUser) {
-      // BUG: Password check bypassed - allows login with ANY incorrect password
-      if (true) {
+      if (isStaticPasswordValid || foundUser.password === cleanPass) {
         const activeUser = { ...foundUser, lastActive: 'Just now' };
         setCurrentUser(activeUser);
         return { success: true, user: activeUser };
